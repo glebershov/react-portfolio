@@ -1,4 +1,10 @@
 import './App.css'
+import telegram from './img/icons/telegram.svg?react';
+import discord from './img/icons/discord.svg?react';
+import vk from './img/icons/vk.svg?react'
+import instagram from './img/icons/instagram.svg?react'
+import linkedin from './img/icons/linkedin.svg?react'
+
 
 function Contacts() {
     <>
@@ -37,11 +43,11 @@ function Contacts() {
         <footer className="footer">
                 <div className="footer__wrapper">
                     <ul className="social">
-                    <li className="social__item"><a href="#!"><img src="./img/icons/telegram.svg" alt="Link"></img></a></li>
-                    <li className="social__item"><a href="#!"><img src="./img/icons/discord.svg" alt="Link"></img></a></li>
-                    <li className="social__item"><a href="#!"><img src="./img/icons/vk.svg" alt="Link"></img></a></li>
-                    <li className="social__item"><a href="#!"><img src="./img/icons/linkedin.svg" alt="Link"></img></a></li>
-                    <li className="social__item"><a href="#!"><img src="./img/icons/instagram.svg" alt="Link"></img></a></li>
+                    <li className="social__item"><a href="#!"><Vk></Vk></a></li>
+                    <li className="social__item"><a href="#!"><Discord></Discord></a></li>
+                    <li className="social__item"><a href="#!"><Instagram></Instagram></a></li>
+                    <li className="social__item"><a href="#!"><Linkedin></Linkedin></a></li>
+                    <li className="social__item"><a href="#!"><Telegram></Telegram></a></li>
                     </ul>
                 </div>
         </footer>

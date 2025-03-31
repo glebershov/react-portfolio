@@ -1,8 +1,44 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
+import Telegram from './img/icons/telegram.svg?react';
+import Discord from './img/icons/discord.svg?react';
+import Vk from './img/icons/vk.svg?react'
+import Instagram from './img/icons/instagram.svg?react'
+import Linkedin from './img/icons/linkedin.svg?react'
+
+let posts = [];
+
+async function loadPosts() {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+        if (!response.ok) throw new Error('Ошибка загрузки');
+
+        posts = await response.json();
+        console.log(posts);
+        // posts = posts.map(post => ({
+        //     ...post,
+        //     likes: false
+        // }));
+        // containerPosts.innerHTML = '';
+        // showPostCard();
+    } catch (error) {
+        // containerPosts.innerHTML = 
+        //     <div className="error" style="color: red; text-align: center;">
+        //         Ошибка: ${error.message}
+        //     </div>
+        // ;
+    }
+}
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    loadPosts()}
+    , [])
+
 
   return (
     <>
@@ -40,11 +76,11 @@ function App() {
         <footer className="footer">
                 <div className="footer__wrapper">
                     <ul className="social">
-                    <li className="social__item"><a href="#!"><img src="./img/icons/telegram.svg" alt="Link"></img></a></li>
-                    <li className="social__item"><a href="#!"><img src="./img/icons/discord.svg" alt="Link"></img></a></li>
-                    <li className="social__item"><a href="#!"><img src="./img/icons/vk.svg" alt="Link"></img></a></li>
-                    <li className="social__item"><a href="#!"><img src="./img/icons/linkedin.svg" alt="Link"></img></a></li>
-                    <li className="social__item"><a href="#!"><img src="./img/icons/instagram.svg" alt="Link"></img></a></li>
+                    <li className="social__item"><a href="#!"><Vk></Vk></a></li>
+                    <li className="social__item"><a href="#!"><Discord></Discord></a></li>
+                    <li className="social__item"><a href="#!"><Instagram></Instagram></a></li>
+                    <li className="social__item"><a href="#!"><Linkedin></Linkedin></a></li>
+                    <li className="social__item"><a href="#!"><Telegram></Telegram></a></li>
                     </ul>
                 </div>
         </footer>
