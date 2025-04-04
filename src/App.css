@@ -29,52 +29,6 @@ body {
 	background-color:#F0F0F0
 }
 
-.header {
-	grid-row: 1;
-	display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  padding: 20px 15px;
-  max-width: auto;
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #4A4A4A;
-  color: #4A4A4A;
-  letter-spacing: normal;
-  width: 100%;
-}
-
-.logo {
-  color: #4A4A4A;
-  font-size: 24px;
-  font-family: "Montserrat", serif;
-  text-decoration: none;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-}
-
-.nav-list {
-  display: flex;
-  list-style-type: none;
-  gap: 40px;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: 'Montserrat', serif;
-}
-
-.nav-list_link {
-	color: #4A4A4A;
-}
-
-.nav-list_active {
-	border-bottom: 1px solid #4A4A4A;
-  display: inline-block;
-  color: #4A4A4A;
-}
-
 .main {
   display: flex;
   flex-direction: column;

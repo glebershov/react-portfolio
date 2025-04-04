@@ -1,12 +1,5 @@
-import './App.css'
+import './posts.css'
 import { useState, useEffect } from 'react';
-
-
-import Telegram from './img/icons/telegram.svg?react';
-import Discord from './img/icons/discord.svg?react';
-import Vk from './img/icons/vk.svg?react'
-import Instagram from './img/icons/instagram.svg?react'
-import Linkedin from './img/icons/linkedin.svg?react'
 
 let posts = [];
 let currentPost = 0;
@@ -111,19 +104,8 @@ let showOnlyLikes = false;
 //     , [])
 
 function Posts() {
-    return 
-    
+    return  
     <div className="wrapper">
-        <header className="header">
-                <a href="./index.html" className="logo">Portfolio</a>
-                <nav className="nav">
-                <ul className="nav-list">
-                    <li className="nav-list_item"><a className="nav-list_link" href="./index.html">Home</a></li>
-                    <li className="nav-list_item"><a className="nav-list_active">Post</a></li>
-                    <li className="nav-list_item"><a className="nav-list_link" href="./contacts.html">Contacts</a></li>
-                </ul>
-            </nav>
-        </header>
         <div className="container">
             <div className="posts-container" id="postsContainer">
                 <div className="loading">Загрузка постов...</div>
@@ -131,17 +113,6 @@ function Posts() {
             <button className="btn-post" id="loadPost">Load posts</button>
             <button className="btn-post" id="showLikes">Show likes</button>
         </div>
-        <footer className="footer">
-                <div className="footer__wrapper">
-                    <ul className="social">
-                    <li className="social__item"><a href="#!"><Vk></Vk></a></li>
-                    <li className="social__item"><a href="#!"><Discord></Discord></a></li>
-                    <li className="social__item"><a href="#!"><Instagram></Instagram></a></li>
-                    <li className="social__item"><a href="#!"><Linkedin></Linkedin></a></li>
-                    <li className="social__item"><a href="#!"><Telegram></Telegram></a></li>
-                    </ul>
-                </div>
-        </footer>
     </div>
     
 }

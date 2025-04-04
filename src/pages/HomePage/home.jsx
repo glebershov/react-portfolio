@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react'
-import './App.css'
-import Telegram from './img/icons/telegram.svg?react';
-import Discord from './img/icons/discord.svg?react';
-import Vk from './img/icons/vk.svg?react'
-import Instagram from './img/icons/instagram.svg?react'
-import Linkedin from './img/icons/linkedin.svg?react'
+import './home.css'
+import Header from '.../widgets/Header/header.jsx'
+import Footer from '.../widgets/Footer/footer.jsx'
+
 
 let posts = [];
 
@@ -32,7 +30,7 @@ async function loadPosts() {
 
 
 
-function App() {
+function Home() {
   const [count, setCount] = useState(0);
   
   useEffect(() => {
@@ -41,19 +39,8 @@ function App() {
 
 
   return (
-    <>
     <div className="wrapper">
-        <header className="header">
-                <a href="./index.html" className="logo">Portfolio</a>
-                <nav className="nav">
-                <ul className="nav-list">
-                    <li className="nav-list_item"><a className="nav-list_active">Home</a></li>
-                    <li className="nav-list_item"><a className="nav-list_link" href="./posts.html">Posts</a></li>
-                    <li className="nav-list_item"><a className="nav-list_link" href="./contacts.html">Contacts</a></li>
-                </ul>
-            </nav>
-        </header>
-
+        <Header></Header>
         <main className="main">
             <div className="main-content">
                 <div className="main_wrapper">
@@ -70,23 +57,9 @@ function App() {
                 </p>
             </div>    
         </main>
-
-        
-
-        <footer className="footer">
-                <div className="footer__wrapper">
-                    <ul className="social">
-                    <li className="social__item"><a href="#!"><Vk></Vk></a></li>
-                    <li className="social__item"><a href="#!"><Discord></Discord></a></li>
-                    <li className="social__item"><a href="#!"><Instagram></Instagram></a></li>
-                    <li className="social__item"><a href="#!"><Linkedin></Linkedin></a></li>
-                    <li className="social__item"><a href="#!"><Telegram></Telegram></a></li>
-                    </ul>
-                </div>
-        </footer>
+        <Footer></Footer>
     </div>
-    </>
   )
 }
 
-export default App
+export default Home;

@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+	--main-bg-color: #f0f0f0;
+	--accent-color: #f8760d;
+	--text-color: #4A4A4A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+	display: flex;
+  flex-direction: column;
+	min-height: 100vh;
+  background-color: --main-bg-color;
+	font-family: "Montserrat", serif;
+	letter-spacing: -0.5px;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-rows: 50px 1fr 50px;
+	min-height: 100vh;
+	background-color:#F0F0F0
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+	grid-row: 2;
+  flex: 1 0 auto;
+  min-height: 695px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f0f0f0;
+  text-align: center;
+  padding: 0;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-image: url(./img/porsche911med.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.main_wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100ch;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn { 
+	margin-top: 20px;
+	display: inline-block;
+	height: 48px;
+	padding: 12px 28px;
+	background-color: #f8760d;
+	color: #ffff;
+	letter-spacing: 0.15px;
+	font-size: 16px;
+	font-weight: 500;
+  border-radius: 5px;
+	border: 1px solid #fff;
+	transition: opacity 0.2s ease-in;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+.about-section {
+	padding: 40px 20px;
+  text-align: center;
+  background-color: #f0f0f0;
+	height: 300px;
+}
+
+.title-1 {
+  margin-bottom: 20px;
+  color: #4A4A4A; 
+}
+
+.content-list__item_3 {
+	background-color: #f0f0f0;
+	color: #4A4A4A;
+}
