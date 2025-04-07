@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react'
 import './home.css'
-import Header from '.../widgets/Header/header.jsx'
-import Footer from '.../widgets/Footer/footer.jsx'
-
 
 let posts = [];
 
@@ -39,8 +36,6 @@ function Home() {
 
 
   return (
-    <div className="wrapper">
-        <Header></Header>
         <main className="main">
             <div className="main-content">
                 <div className="main_wrapper">
@@ -57,8 +52,6 @@ function Home() {
                 </p>
             </div>    
         </main>
-        <Footer></Footer>
-    </div>
   )
 }
 

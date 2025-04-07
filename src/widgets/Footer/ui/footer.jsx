@@ -7,6 +7,7 @@ import Instagram from './iconsFooter/instagram.svg?react'
 import Linkedin from './iconsFooter/linkedin.svg?react'
 
 function Footer() {
+    return(
     <footer className="footer">
                 <div className="footer__wrapper">
                     <ul className="social">
@@ -18,6 +19,7 @@ function Footer() {
                     </ul>
                 </div>
     </footer>
+    )
 }
 
 export default Footer;

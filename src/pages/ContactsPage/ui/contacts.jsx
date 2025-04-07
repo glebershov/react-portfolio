@@ -1,7 +1,7 @@
 import './contacts.css';
 
 function Contacts() {
-    <div className="wrapper">
+    return (
         <main className="section">
             <div className="container">
                 <h1 className="title-1">Contacts</h1>
@@ -21,7 +21,6 @@ function Contacts() {
                 </ul>
             </div>
         </main>
-    </div>
-
+    )
 }
 export default Contacts;

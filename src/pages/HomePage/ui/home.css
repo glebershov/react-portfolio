@@ -14,19 +14,21 @@
 
 html,
 body {
-	display: flex;
+	display: block;
   flex-direction: column;
-	min-height: 100vh;
+	min-height: 100%;
   background-color: --main-bg-color;
 	font-family: "Montserrat", serif;
 	letter-spacing: -0.5px;
 }
 
 .wrapper {
-	display: grid;
-	grid-template-rows: 50px 1fr 50px;
-	min-height: 100vh;
-	background-color:#F0F0F0
+	/* display: grid; */
+	/* grid-template-rows: 50px 1fr 50px; */
+  margin: 0;  
+  padding: 0; 
+	min-height: 100%;
+	background-color:#F0F0F0;
 }
 
 .main {
@@ -41,6 +43,7 @@ body {
   color: #f0f0f0;
   text-align: center;
   padding: 0;
+  background-color:#F0F0F0;
 }
 
 .main-content {
