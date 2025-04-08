@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router"
 import Header from "./widgets/Header/ui/header"
 import Footer from "./widgets/Footer/ui/footer"
 import Home from './pages/HomePage/ui/home'

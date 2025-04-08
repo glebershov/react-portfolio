@@ -35,7 +35,7 @@ function Posts() {
   };
 
   return (
-    <div className="page-wrapper">
+    <div className="wrapper">
       <div className="content-box">
         <h2>Список постов</h2>
         
@@ -48,8 +48,8 @@ function Posts() {
                 ? allPosts.filter(post => likedPosts.includes(post.id)) 
                 : visiblePosts).map(post => (
                 <div key={post.id} className="post-item">
-                  <h3>{post.title}</h3>
-                  <p>{post.body}</p>
+                  <h3 className='post-title'>{post.title}</h3>
+                  <p className='post-body'>{post.body}</p>
                   <div className="post-footer">
                     <span>ID: {post.id}</span>
                     <button 
@@ -65,10 +65,10 @@ function Posts() {
                 </div>
               ))}
             </div>
-
-            <div className="controls">
+            <div className='controls'>
               {!showLiked && (
-                <button 
+                <button
+                  className='btn-post' 
                   onClick={loadMore}
                   disabled={visiblePosts.length >= 100}
                 >
@@ -76,7 +76,7 @@ function Posts() {
                 </button>
               )}
               
-              <button onClick={() => setShowLiked(!showLiked)}>
+              <button className='btn-post' onClick={() => setShowLiked(!showLiked)}>
                 {showLiked ? 'Все посты' : 'Понравившиеся'}
               </button>
             </div>
