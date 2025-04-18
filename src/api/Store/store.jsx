@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import postsReducer from './postsSlice'; // Убраны фигурные скобки
+import postsReducer from './postsSlice';
 
 export const postsStore = configureStore({
   reducer: {
