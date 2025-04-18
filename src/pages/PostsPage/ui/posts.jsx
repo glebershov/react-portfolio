@@ -1,82 +1,77 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './posts.css';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  fetchPosts,
+  likePost,
+  setShowLiked,
+  loadMore
+} from '../../../api/Store/postsSlice';
 
-function Posts() {
-  const [allPosts, setAllPosts] = useState([]);
-  const [visiblePosts, setVisiblePosts] = useState([]);
-  const [likedPosts, setLikedPosts] = useState([]);
-  const [showLiked, setShowLiked] = useState(false);
-  const [loading, setLoading] = useState(true);
+const Posts = () => {
+  const dispatch = useDispatch();
+  const {
+    allPosts,
+    visiblePosts,
+    likedPosts,
+    showLiked,
+    loading
+  } = useSelector(state => state.posts);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => response.json())
-      .then(data => {
-        setAllPosts(data.slice(0, 100));
-        setVisiblePosts(data.slice(0, 12));
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
+    dispatch(fetchPosts());
+  }, [dispatch]);
 
   const handleLikeClick = (postId) => {
-    setLikedPosts(prev => 
-      prev.includes(postId) 
-        ? prev.filter(id => id !== postId) 
-        : [...prev, postId]
-    );
-  };
-
-  const loadMore = () => {
-    setVisiblePosts(prev => [
-      ...prev,
-      ...allPosts.slice(prev.length, prev.length + 10)
-    ]);
+    dispatch(likePost(postId));
   };
 
   return (
     <div className="wrapper">
       <div className="content-box">
         <h2>Список постов</h2>
-        
+
         {loading ? (
           <p>Идет загрузка...</p>
         ) : (
           <>
             <div className="posts-list">
-              {(showLiked 
-                ? allPosts.filter(post => likedPosts.includes(post.id)) 
+              {(showLiked
+                ? allPosts.filter(post => likedPosts.includes(post.id))
                 : visiblePosts).map(post => (
-                <div key={post.id} className="post-item">
-                  <h3 className='post-title'>{post.title}</h3>
-                  <p className='post-body'>{post.body}</p>
-                  <div className="post-footer">
-                    <span>ID: {post.id}</span>
-                    <button 
-                      onClick={() => handleLikeClick(post.id)}
-                      className={`like-btn ${
-                        likedPosts.includes(post.id) ? 'active' : ''
-                      }`}
-                      style={{ marginLeft: '10px', cursor: 'pointer' }}
-                    >
-                      {likedPosts.includes(post.id) ? 'Liked' : 'Like'}
-                    </button>
+                  <div key={post.id} className="post-item">
+                    <h3 className='post-title'>{post.title}</h3>
+                    <p className='post-body'>{post.body}</p>
+                    <div className="post-footer">
+                      <span>ID: {post.id}</span>
+                      <button
+                        onClick={() => handleLikeClick(post.id)}
+                        className={`like-btn ${
+                          likedPosts.includes(post.id) ? 'active' : ''
+                        }`}
+                        style={{ marginLeft: '10px', cursor: 'pointer' }}
+                      >
+                        {likedPosts.includes(post.id) ? 'Liked' : 'Like'}
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
             <div className='controls'>
               {!showLiked && (
                 <button
-                  className='btn-post' 
-                  onClick={loadMore}
+                  className='btn-post'
+                  onClick={() => dispatch(loadMore())}
                   disabled={visiblePosts.length >= 100}
                 >
                   Загрузить еще
                 </button>
               )}
-              
-              <button className='btn-post' onClick={() => setShowLiked(!showLiked)}>
+
+              <button 
+                className='btn-post' 
+                onClick={() => dispatch(setShowLiked(!showLiked))}
+              >
                 {showLiked ? 'Все посты' : 'Понравившиеся'}
               </button>
             </div>
