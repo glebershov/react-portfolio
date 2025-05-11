@@ -1,6 +1,7 @@
+import { FC, JSX } from 'react';
 import './contacts.css';
 
-function Contacts() {
+const Contacts: FC = ():JSX.Element => {
     return (
         <main className="section">
             <div className="container">

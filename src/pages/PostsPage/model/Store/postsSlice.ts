@@ -1,29 +1,36 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {fetchPosts} from '../../../../entities/post/index.ts';
+import type {Post} from '../../../../entities/post/types.ts'
 
-export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-  return response.json();
-});
 
-const initialState = {
+export interface PostState {
+  allPosts: Post[],
+  visiblePosts: Post[],
+  likedPosts: number[],
+  showLiked: boolean,
+  loading: boolean,
+  Error: null | string
+}
+const initialState: PostState = { //
   allPosts: [],
   visiblePosts: [],
   likedPosts: [],
   showLiked: false,
-  loading: true
+  loading: true,
+  Error: null,
 };
 
 const postsSlice = createSlice({
   name: 'posts',
   initialState,
   reducers: {
-    likePost: (state, action) => {
+    likePost: (state, action: PayloadAction<number>) => {
       const postId = action.payload;
       state.likedPosts.includes(postId)
         ? state.likedPosts = state.likedPosts.filter(id => id !== postId)
         : state.likedPosts.push(postId);
     },
-    setShowLiked: (state, action) => {
+    setShowLiked: (state, action: PayloadAction<boolean>) => {
       state.showLiked = action.payload;
     },
     loadMore: (state) => {
@@ -39,7 +46,7 @@ const postsSlice = createSlice({
       .addCase(fetchPosts.pending, (state) => {
         state.loading = true;
       })
-      .addCase(fetchPosts.fulfilled, (state, action) => {
+      .addCase(fetchPosts.fulfilled, (state, action: PayloadAction<Post[]>) => {
         state.loading = false;
         state.allPosts = action.payload;
         state.visiblePosts = action.payload.slice(0, 12);

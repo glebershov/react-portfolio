@@ -1,12 +1,12 @@
 import './footer.css';
-
+import { FC, JSX } from 'react';
 import Telegram from './iconsFooter/telegram.svg?react'
 import Discord from './iconsFooter/discord.svg?react';
 import Vk from './iconsFooter/vk.svg?react'
 import Instagram from './iconsFooter/instagram.svg?react'
 import Linkedin from './iconsFooter/linkedin.svg?react'
 
-function Footer() {
+const Footer: FC =(): JSX.Element => {
     return(
     <footer className="footer">
                 <div className="footer__wrapper">
